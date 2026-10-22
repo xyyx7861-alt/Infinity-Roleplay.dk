@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mød teamet bag Infinity Roleplay FiveM-serveren.">
+<title>Infinity Roleplay | Team</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#090e1a;color:white;font-family:Arial,sans-serif}
+header{background:#101a2b;padding:22px 7%;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #26364f}
+.logo{font-size:23px;font-weight:900}.logo span{color:#60a5fa}
+nav a{color:#cbd5e1;text-decoration:none;margin-left:18px;font-size:14px}nav a:hover{color:#60a5fa}
+.hero{text-align:center;padding:90px 20px 55px;background:radial-gradient(ellipse at top,#18345a,#090e1a 70%)}
+.hero h1{font-size:46px;margin:0 0 15px}.hero h1 span{color:#60a5fa}.hero p{color:#94a3b8}
+section{max-width:1100px;margin:auto;padding:30px 20px;text-align:center}section h2{font-size:27px;margin:35px 0 25px}
+.grid{display:flex;justify-content:center;flex-wrap:wrap;gap:20px}
+.card{width:245px;padding:30px 20px;background:#131e30;border:1px solid #293b55;border-radius:16px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-5px);border-color:#60a5fa}.card.owner{border-color:#d9ad56}
+.avatar{width:75px;height:75px;background:#233b60;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 18px}
+.card h3{margin:8px 0;font-size:20px}.role{color:#60a5fa;font-size:14px}
+footer{text-align:center;color:#64748b;padding:50px 20px;margin-top:40px;border-top:1px solid #1e293b}
+@media(max-width:600px){header{flex-wrap:wrap;padding:20px}nav a{margin:0 15px 0 0}.hero h1{font-size:32px}.card{width:100%;max-width:350px}}
+</style>
+</head>
+<body>
+<header><div class="logo">INFINITY <span>RP</span></div><nav><a href="#ejer">Ejer</a><a href="#dev">Developer</a><a href="#staff">Staff Team</a></nav></header>
+<div class="hero"><h1>INFINITY <span>ROLEPLAY</span></h1><p>Mød teamet bag vores FiveM-server</p></div>
+<section id="ejer"><h2>👑 Server Ejere</h2><div class="grid" id="owners"></div></section>
+<section id="dev"><h2>💻 Development Team</h2><div class="grid" id="developers"></div></section>
+<section id="staff"><h2>🛡️ Staff Team</h2><div class="grid" id="staffMembers"></div></section>
+<footer>© 2026 Infinity Roleplay</footer>
+<script>
+// TEAM NAVNE - ÆNDR HER
+const team = {
+  owners: [
+    {name:"2K",role:"Server Owner",icon:"👑"},
+    {name:"Johan",role:"Server Owner",icon:"👑"}
+  ],
+  developers: [
+    {name:"2K",role:"Developer",icon:"💻"}
+  ],
+  staffMembers: [
+    {name:"Staffnavn",role:"Staff Manager",icon:"⭐"},
+    {name:"Adminnavn",role:"Administrator",icon:"🛡️"},
+    {name:"Modnavn",role:"Moderator",icon:"🔰"}
+  ]
+};
+function showTeam(id,members){
+ const container=document.getElementById(id);
+ members.forEach(member=>{
+  const card=document.createElement("div");
+  card.className="card"+(id==="owners"?" owner":"");
+  const avatar=document.createElement("div");avatar.className="avatar";avatar.textContent=member.icon;
+  const name=document.createElement("h3");name.textContent=member.name;
+  const role=document.createElement("div");role.className="role";role.textContent=member.role;
+  card.append(avatar,name,role);container.appendChild(card);
+ });
+}
+showTeam("owners",team.owners);
+showTeam("developers",team.developers);
+showTeam("staffMembers",team.staffMembers);
+</script>
+</body>
+</html>
